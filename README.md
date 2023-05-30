@@ -1,5 +1,6 @@
 # PerformanceTesting-K6
 
+Clone the repo https://github.com/Anshita-Bhasin/PerformanceTesting-K6.git
 
 **1) Install K6**
 
