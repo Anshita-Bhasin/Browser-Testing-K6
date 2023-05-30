@@ -1,0 +1,36 @@
+name: K6 Performance Tests
+on:
+  push:
+ 
+jobs:
+  performance-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Run api k6 test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: apiTest.js
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-report-summary
+          path: apiTestSummaryReport.html
+
+      - name: Run api k6 test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: browserTest.js
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-report-summary
+          path: browsedrTestSummaryReport.html
+  
+    
+
+    
