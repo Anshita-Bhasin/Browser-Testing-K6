@@ -17,7 +17,7 @@ jobs:
       - name: Upload Report
         uses: actions/upload-artifact@v3
         with:
-          name: k6-report-summary
+          name: k6-API-report-summary
           path: apiTestSummaryReport.html
 
       - name: Run api k6 test
@@ -28,8 +28,8 @@ jobs:
       - name: Upload Report
         uses: actions/upload-artifact@v3
         with:
-          name: k6-report-summary
-          path: browsedrTestSummaryReport.html
+          name: k6-browser-report-summary
+          path: browserTestSummaryReport.html
   
     
 
