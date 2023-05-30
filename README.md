@@ -41,7 +41,13 @@ Pass the username and access key in your script
 <img width="1711" alt="image" src="https://github.com/Anshita-Bhasin/PerformanceTesting-K6/assets/10338077/9504a194-dbf8-4fd8-be6e-f3c191a79c2b">
 
 
+
 **4) Lambda Test Dashboard**
+
 
 <img width="1724" alt="image" src="https://github.com/Anshita-Bhasin/PerformanceTesting-K6/assets/10338077/16b6d155-fc2a-4eab-8aa0-b2a34148300f">
 
+
+**5)Screenshots from Test**
+
+![image](https://github.com/Anshita-Bhasin/PerformanceTesting-K6/assets/10338077/423fe2cc-4334-46e1-9a89-1deee68a041e)
