@@ -53,6 +53,6 @@ export function handleSummary(data) {
     const reportTitle = `${customTitle} - ${new Date().toLocaleDateString()}`;
 
     return {
-        'LT SummaryReport.html': htmlReport(data, { title: reportTitle }),
+        'LTSummaryReport.html': htmlReport(data, { title: reportTitle }),
     };
 }
