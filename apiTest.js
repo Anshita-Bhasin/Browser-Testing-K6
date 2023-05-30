@@ -10,6 +10,7 @@ export const options = {
             vus: 10,
             duration: '20s',
         },
+
     },
 };
 
@@ -28,7 +29,10 @@ export function browser() {
     });
 }
 export function handleSummary(data) {
+    const customTitle = 'API Load Test';
+    const reportTitle = `${customTitle} - ${new Date().toLocaleDateString()}`;
+
     return {
-        "apiTestSummaryReport.html": htmlReport(data),
+        'apiTestSummaryReport.html': htmlReport(data, { title: reportTitle }),
     };
 }

@@ -9,6 +9,8 @@ export default async function () {
     const page = context.newPage();
 
     await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
+    await page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
+
     page.fill('[id="input-email"]', 'lambdatest.Cypress@disposable.com');
     page.fill('[id="input-password"]', 'Cypress123!!');
     page.locator('input[value="Login"]').click();
@@ -22,7 +24,10 @@ export default async function () {
 }
 
 export function handleSummary(data) {
+    const customTitle = 'Browser Load Test';
+    const reportTitle = `${customTitle} - ${new Date().toLocaleDateString()}`;
+
     return {
-        "browserTestSummaryReport.html": htmlReport(data),
+        'browserTestSummaryReport.html': htmlReport(data, { title: reportTitle }),
     };
 }
