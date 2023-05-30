@@ -24,7 +24,7 @@ Pass the username and access key in your script
 
 
 
-**3) Sample Reports **
+**3) Sample Reports**
 
 
 <img width="1714" alt="image" src="https://github.com/Anshita-Bhasin/PerformanceTesting-K6/assets/10338077/9573c5a4-8aee-46d5-ae24-d60f7e7f8516">
@@ -40,6 +40,8 @@ Pass the username and access key in your script
 
 <img width="1711" alt="image" src="https://github.com/Anshita-Bhasin/PerformanceTesting-K6/assets/10338077/9504a194-dbf8-4fd8-be6e-f3c191a79c2b">
 
+
+**4) Lambda Test Dashboard**
 
 <img width="1724" alt="image" src="https://github.com/Anshita-Bhasin/PerformanceTesting-K6/assets/10338077/16b6d155-fc2a-4eab-8aa0-b2a34148300f">
 
