@@ -20,7 +20,7 @@ jobs:
           name: k6-API-report-summary
           path: apiTestSummaryReport.html
 
-      - name: Run api k6 test
+      - name: Run k6 test on Lambda Test
         uses: grafana/k6-action@v0.2.0
         with:
           filename: LtTest.js
