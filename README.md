@@ -4,6 +4,7 @@
 **1) Install K6**
 
 MAC OS => brew install k6
+
 Windows => winget install k6
 
 
