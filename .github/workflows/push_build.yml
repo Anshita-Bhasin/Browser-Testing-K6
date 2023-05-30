@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Run api k6 test
-        uses: grafana/k6-action@v0.2.0
+        uses: grafana/k6-action@v0.3.0
         with:
           filename: apiTest.js
 
@@ -27,7 +27,7 @@ jobs:
           path: apiTestSummaryReport.html
 
       - name: Run k6 test on Lambda Test
-        uses: grafana/k6-action@v0.2.0
+        uses: grafana/k6-action@v0.3.0
         with:
           filename: LtTest.js
 
