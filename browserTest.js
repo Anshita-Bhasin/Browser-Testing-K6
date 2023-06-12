@@ -1,33 +1,44 @@
-import { chromium } from 'k6/experimental/browser';
-import { check } from 'k6';
-import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+    import { chromium } from 'k6/experimental/browser';
+    import { check } from 'k6';
+    import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/2.4.0/dist/bundle.js";
+   
+   
+    export let options = {
+        vus: 5,
+        iterations: 10
+
+    }
+
+    export default async function () {
+        const browser = chromium.launch({ headless: false });
+        const context = browser.newContext();
+        const page = context.newPage();
+
+        await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
+        await page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
+
+        page.locator('[id="input-email"]').type('lambdatest.Cypress@disposable.com');
+        page.locator('[id="input-password"]').type('Cypress123!!');
+        const submitButton = page.locator('input[value="Login"]');
+        await Promise.all([page.waitForNavigation(), submitButton.click()]);
+
+        check(page, {
+            'Verify user is logged In': () =>
+                page.locator('.breadcrumb-item.active').textContent() == 'Account',
+        });
+        check(page, {
+            'Verify the text': () =>
+                page.locator('.breadcrumb-item.active').textContent() == 'Test',
+        });
 
 
-export default async function () {
-    const browser = chromium.launch({ headless: false });
-    const context = browser.newContext();
-    const page = context.newPage();
+        await page.close()
+        await browser.close();
+    }
 
-    await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
-    await page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
+    export function handleSummary(data) {
+        return {
+            'TestReport.html': htmlReport(data, { debug: true })
+        };
 
-    page.fill('[id="input-email"]', 'lambdatest.Cypress@disposable.com');
-    page.fill('[id="input-password"]', 'Cypress123!!');
-    page.locator('input[value="Login"]').click();
-
-    check(page, {
-        'Verify user is logged In': () =>
-            page.textContent('.list-group-item.active') === 'My Account',
-    });
-    await page.close()
-    await browser.close();
-}
-
-export function handleSummary(data) {
-    const customTitle = 'Browser Load Test';
-    const reportTitle = `${customTitle} - ${new Date().toLocaleDateString()}`;
-
-    return {
-        'browserTestSummaryReport.html': htmlReport(data, { title: reportTitle }),
-    };
-}
+    }

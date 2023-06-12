@@ -2,6 +2,7 @@ import { chromium } from 'k6/experimental/browser';
 import { expect } from 'https://jslib.k6.io/k6chaijs/4.3.4.3/index.js';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
+
 export default async function () {
     const capabilities = {
         "browserName": "Chrome",
@@ -15,13 +16,17 @@ export default async function () {
             "network": true,
             "video": true,
             "console": true,
-            'tunnel': false,   },
+            'tunnel': false,
+        },
     };
+
+
 
     const wsURL = `wss://cdp.lambdatest.com/puppeteer?capabilities=${encodeURIComponent(JSON.stringify(capabilities))}`
     const browser = chromium.connect(wsURL);
 
     const page = browser.newPage();
+
 
     try {
         await page.goto("https://duckduckgo.com");
@@ -46,7 +51,9 @@ export default async function () {
         page.close();
         browser.close();
     }
-};
+}
+
+
 
 export function handleSummary(data) {
     const customTitle = 'LT Sample Test';
