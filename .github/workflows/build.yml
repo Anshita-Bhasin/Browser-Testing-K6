@@ -8,35 +8,39 @@ jobs:
     env:
       K6_BROWSER_ENABLED: true
 
-    steps:
-- name: Checkout Code
-uses: actions/checkout@v2
-
-
-- name: Run browser k6 test
-uses: grafana/k6-action@v0.3.0
-with:
-filename: browserTest.js
-
-
-- name: Upload Report
-uses: actions/upload-artifact@v3
-with:
-name: k6-browser-report-summary
-path: browserTestSummaryReport.html
-
-
-- name: Run k6 test on Lambda Test
-uses: grafana/k6-action@v0.3.0
-with:
-filename: loginTest.js
-
-
-- name: Upload Report
-uses: actions/upload-artifact@v3
-with:
-name: k6-browser-report-summary
-path: cloudTestSummaryReport.html
     
+    
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+
+
+      - name: Run browser k6 test
+        uses: grafana/k6-action@v0.3.0
+        with:
+         filename: browserTest.js
+
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-browser-report-summary
+          path: browserTestSummaryReport.html
+
+
+      - name: Run k6 test on Lambda Test
+        uses: grafana/k6-action@v0.3.0
+        with:
+         filename: loginTest.js
+
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-browser-report-summary
+          path: cloudTestSummaryReport.html
+
 
     
