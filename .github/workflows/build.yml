@@ -36,7 +36,7 @@ filename: loginTest.js
 uses: actions/upload-artifact@v3
 with:
 name: k6-browser-report-summary
-path: LTSummaryReport.html
+path: cloudTestSummaryReport.html
     
 
     
