@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: k6-browser-report-summary
-          path: cloudTestSummaryReport.html
+          path: TestReport.html
 
 
     
