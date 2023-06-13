@@ -38,7 +38,7 @@
 
     export function handleSummary(data) {
         return {
-            'TestReport.html': htmlReport(data, { debug: true })
+            'TestSummaryReport.html': htmlReport(data, { debug: true })
         };
 
     }
