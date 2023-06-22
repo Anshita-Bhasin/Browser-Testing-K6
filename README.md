@@ -21,7 +21,7 @@ K6_BROWSER_ENABLED=true k6 run LtTest.js
 **3) Run test on LT Platform**
 
 Pass the username and access key in your script
-![image](https://github.com/Anshita-Bhasin/PerformanceTesting-K6/assets/10338077/097ae378-6e56-4c6e-b8bd-3c2fd2078dba)
+
 
 
 
