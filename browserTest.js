@@ -17,8 +17,8 @@
         await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
         await page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
 
-        page.locator('[id="input-email"]').type('lambdatest.Cypress@disposable.com');
-        page.locator('[id="input-password"]').type('Cypress123!!');
+        page.locator('#input-email').type('lambdatest.Cypress@disposable.com');
+        page.locator('#input-password').type('Cypress123!!');
         const submitButton = page.locator('input[value="Login"]');
         await Promise.all([page.waitForNavigation(), submitButton.click()]);
 
