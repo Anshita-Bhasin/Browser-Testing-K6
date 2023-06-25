@@ -18,7 +18,6 @@ jobs:
         with:
          filename: browserTest.js
 
-
       - name: Upload Report
         uses: actions/upload-artifact@v3
         with:
