@@ -6,10 +6,7 @@ jobs:
   performance-tests:
     runs-on: ubuntu-latest
     env:
-      K6_BROWSER_ENABLED: true
-
-    
-    
+      K6_BROWSER_ENABLED: true  
     
     steps:
       - name: Checkout Code
