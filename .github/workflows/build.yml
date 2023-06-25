@@ -7,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       K6_BROWSER_ENABLED: true  
+      
     
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+      
       
 
       - name: Run browser k6 test
