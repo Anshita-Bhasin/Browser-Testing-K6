@@ -9,6 +9,7 @@ jobs:
       K6_BROWSER_ENABLED: true  
       
     
+    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
