@@ -6,7 +6,8 @@ export let options = {
     vus: 3,
     iterations: 4
 }
-   
+  
+
 
 export default async function () {
     const capabilities = [
@@ -17,9 +18,8 @@ export default async function () {
                 "platform": "Windows 11",
                 "build": "K6 Build",
                 "name": "K6 Test",
-                 "user": "anshita.bhasin",
-            "accesskey": "2fOpr9I0H4JHaiDofVMGgiLh2nyy2SuZWcq8NXx3OzoQBkHJYR",
-  
+                "user": '${__ENV.LT_USERNAME}',
+                "accessKey": '${__ENV.LT_ACCESS_KEY}',
                 "network": true,
                 "video": true,
                 "console": true,
@@ -33,8 +33,8 @@ export default async function () {
                 "platform": "MacOS Ventura",
                 "build": "K6 Build",
                 "name": "K6 Test",
-               "user": "anshita.bhasin",
-    "accesskey": "2fOpr9I0H4JHaiDofVMGgiLh2nyy2SuZWcq8NXx3OzoQBkHJYR",
+                "user": '${__ENV.LT_USERNAME}',
+                "accessKey": '${__ENV.LT_ACCESS_KEY}',
                 "network": true,
                 "video": true,
                 "console": true,
@@ -45,16 +45,16 @@ export default async function () {
 
     capabilities.forEach(async (value) => {
         console.log(' URL formed is ' + JSON.stringify(value))
-        const wsURL = `wss://cdp.lambdatest.com/puppeteer?capabilities=${encodeURIComponent(JSON.stringify(value))}`
+        const wsURL = `wss://cdp.lambdatest.com/k6?capabilities=${encodeURIComponent(JSON.stringify(value))}`
         const browser = chromium.connect(wsURL);
         const context = browser.newContext();
         const page = context.newPage();
 
         await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
-        await page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
+         page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
 
-        page.locator('#input-email').type('lambdatest.Cypress@disposable.com');
-        page.locator('#input-password').type('Cypress123!!');
+        page.locator('[id="input-email"]').type('lambdatest.Cypress@disposable.com');
+        page.locator('[id="input-password"]').type('Cypress123!!');
         const submitButton = page.locator('input[value="Login"]');
         await Promise.all([page.waitForNavigation(), submitButton.click()]);
 
@@ -68,8 +68,8 @@ export default async function () {
                 page.locator('.breadcrumb-item.active').textContent() == 'Test'
         });
 
-        await page.close();
-        await browser.close();
+         page.close();
+         browser.close();
     });
 }
 
