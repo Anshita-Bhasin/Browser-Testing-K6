@@ -15,7 +15,7 @@
         const page = context.newPage();
 
         await page.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
-        await page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
+         page.screenshot({ path: 'screenshots/browserTestScreenshot.png' });
 
         page.locator('#input-email').type('lambdatest.Cypress@disposable.com');
         page.locator('#input-password').type('Cypress123!!');
@@ -32,8 +32,8 @@
         });
 
 
-        await page.close()
-        await browser.close();
+         page.close()
+         browser.close();
     }
 
     export function handleSummary(data) {
