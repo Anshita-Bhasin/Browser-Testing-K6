@@ -12,5 +12,7 @@ RUN apt-get update && \
 COPY --from=builder /tmp/k6 /usr/bin/k6
 
 ENV XK6_HEADLESS=true
+ENV K6_BROWSER_ENABLED=true
+
 
 ENTRYPOINT ["k6"]
