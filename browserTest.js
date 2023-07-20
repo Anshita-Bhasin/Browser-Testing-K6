@@ -40,7 +40,7 @@
 
     export function handleSummary(data) {
         return {
-            'TestSummaryReport.html': htmlReport(data, { debug: true })
+            '1Report.html': htmlReport(data, { debug: true })
         };
 
     }
