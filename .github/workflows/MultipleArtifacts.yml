@@ -13,11 +13,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+        
+        
+      - name: Build docker images
+        run: docker build -t browser-k6 -f Dockerfile .
 
-      - name: Run browser k6 test
-        uses: grafana/k6-action@v0.3.0
-        with:
-         filename: browserTest.js
+      - name: Run tests
+        run: docker run --rm -i browser-k6 run - <browserTest.js
+     
 
       - name: Upload Report
         uses: actions/upload-artifact@v3
