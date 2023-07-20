@@ -1,4 +1,4 @@
-FROM grafana/k6:0.43.1
+FROM grafana/k6:0.45.0
 USER root
 
 RUN apk update && apk add --no-cache chromium
