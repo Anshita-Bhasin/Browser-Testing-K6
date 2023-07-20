@@ -10,7 +10,9 @@
     }
 
     export default async function () {
-        const browser = chromium.launch({ headless: false });
+        //const browser = chromium.launch({ headless: false });
+
+        const browser = chromium.launch({ args: ['no-sandbox'], headless: true, timeout: '60s' });
         const context = browser.newContext();
         const page = context.newPage();
 
