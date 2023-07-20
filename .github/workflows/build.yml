@@ -17,7 +17,8 @@ jobs:
         run: docker build -t browser-k6 -f Dockerfile .
         
       - name: Running the Docker image  
-        run: docker run --rm -i browser-k6 run - <browserTest.js
+       
+        run: docker run --rm -v $(pwd):/app k6-with-browser run /app/browserTest.js
 
 
       - name: Upload Report
