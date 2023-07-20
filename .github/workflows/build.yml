@@ -5,8 +5,7 @@ on:
 jobs:
   performance-test:
     runs-on: ubuntu-latest
-    env:
-      K6_BROWSER_ENABLED: true  
+   
         
     steps:
       - name: Checkout Code
@@ -25,6 +24,8 @@ jobs:
         uses: grafana/k6-action@v0.3.0
         with:
          filename: browserTest.js
+         flags: --env K6_BROWSER_ENABLED:true 
+
 
       - name: Upload Report
         uses: actions/upload-artifact@v3
