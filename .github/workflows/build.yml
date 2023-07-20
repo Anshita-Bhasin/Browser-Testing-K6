@@ -3,18 +3,14 @@ on:
   push:
  
 jobs:
-  performance-tests:
+  performance-test:
     runs-on: ubuntu-latest
     env:
       K6_BROWSER_ENABLED: true  
-      
-    
-    
+        
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      
-      
 
       - name: Run browser k6 test
         uses: grafana/k6-action@v0.3.0
