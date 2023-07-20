@@ -13,21 +13,19 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: docker build -t browser-k6 -f Dockerfile .
         
-    
-
-
+        
+     
       - name: Install Chrome and Chromedriver
         uses: browser-actions/setup-chrome@v1
       
+      - name: Build the Docker image
+        run: docker build -t browser-k6 -f Dockerfile .
+        
+      - name: Running the Docker image  
+        run:  docker-compose run -T xk6-browser run - <browserTest.js
 
-      - name: Run local k6 test 
-        uses: grafana/k6-action@v0.3.0
-        with:
-         filename: browserTest.js
-
+     
       - name: Upload Report
         uses: actions/upload-artifact@v3
         with:
