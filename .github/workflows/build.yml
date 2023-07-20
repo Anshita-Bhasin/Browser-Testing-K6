@@ -20,19 +20,8 @@ jobs:
 
 
       - name: Install Chrome and Chromedriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          sudo apt-get install -y chromium-chromedriver
-          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14' # Change the version based on your project requirements
-
-      - name: Install dependencies
-        run: npm install # Or yarn install if you use yarn
+        uses: browser-actions/setup-chrome@v1
+      
 
       - name: Run local k6 test 
         uses: grafana/k6-action@v0.3.0
