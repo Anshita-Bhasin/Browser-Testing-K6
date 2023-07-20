@@ -16,11 +16,12 @@ jobs:
     strategy:
       matrix:
         go: [stable, tip]
-        platform: [ubuntu-latest-8-cores, windows-latest, macos-latest]
+        platform: [ubuntu-latest-8-cores]
     runs-on: ubuntu-latest-8-cores
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
       - name: Install Go
         uses: actions/setup-go@v2
         with:
