@@ -1,4 +1,4 @@
-name: K6 Performance Tests
+name: K6 Browser Performance Tests
 on:
   push:
  
