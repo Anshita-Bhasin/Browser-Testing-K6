@@ -26,7 +26,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: k6-browser-report-summary
-          path: TestSummaryReport.html
+          path: 1Report.html
 
       - name: Run k6 test on Lambda Test
         uses: grafana/k6-action@v0.3.0
