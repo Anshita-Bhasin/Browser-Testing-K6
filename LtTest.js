@@ -12,7 +12,7 @@ export default async function () {
             "build": "K6 Build",
             "name": "K6 Test",
             "user": 'anshita.bhasin',
-            "accessKey": '<test>',
+            "accessKey": 'Ky8ACLBDr0M5JNKKWEPvWO6hmtGNL7OFcTHa4tWMA3gugWwO4s',
             "network": true,
             "video": true,
             "console": true,
