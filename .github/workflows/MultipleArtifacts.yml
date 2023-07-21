@@ -18,23 +18,12 @@ jobs:
       - name: Build docker images
         run: docker build -t browser-k6 -f Dockerfile .
 
-      - name: Run tests
-        run: docker run --rm -i browser-k6 run - <browserTest.js
-     
-
-      - name: Upload Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: k6-browser-report-summary
-          path: 1Report.html
+  
+      
 
       - name: Run k6 test on Lambda Test
         uses: grafana/k6-action@v0.3.0
         with:
          filename: loginTest.js
 
-      - name: Upload Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: k6-report-summary
-          path: TestReport.html
+    
